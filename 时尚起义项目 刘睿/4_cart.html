@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时尚起义</title>
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/css一秒排版.css">
+    <link rel="stylesheet" href="CSS/4_cart.css">
+    <script src="JS/jquery-1.12.0.js"></script>
+    <script src="JS/jquery.lazyload.js"></script>
+    <script src="JS/jquery.cookie.js"></script>
+    <style>
+        body {
+            height: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+        img {
+            /*display: block;*/
+        }
+        .header {
+            width: 100%;
+            height: 127px;
+            z-index: 1;
+            float: left;
+        }
+        .header .header_logo {
+            float: left;
+        }
+
+        .header .header_ul {
+            margin-left: 340px;
+
+        }
+
+        .header .header_ul li {
+            float: left;
+            padding: 10px;
+            margin-top: 90px;
+
+        }
+
+        .header .header_ul li a {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .header .header_right {
+            margin-right: 40px;
+
+        }
+
+        .header .header_right li {
+            float: right;
+            padding: 10px;
+            margin-top: 70px;
+
+        }
+
+        .header .header_right li a:hover {
+            text-decoration: underline;
+        }
+
+        .header .header_right li a {
+            font-size: 14px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .header .header_top {
+            float: right;
+            margin-right: 50px;
+            margin-top: -8px;
+        }
+
+        .header_hidenav {
+            z-index: 2;
+            width: 100%;
+            height: 40px;
+            float: left;
+            background: #393939;
+            display: none;
+
+        }
+
+        .header_hidenav .hidenav_ul li {
+            float: left;
+            position: relative;
+        }
+
+        .header_hidenav .hidenav_ul li a {
+            padding: 6px;
+            line-height: 40px;
+            color: white;
+            font-size: 16px;
+            border-right: 1px solid #585858;
+        }
+
+        .header_hidenav .hidenav_ul li span {
+            color: #32C8F0;
+            font-size: 10px;
+        }
+
+        .header_hidenav .hidenav_ul li .span1 {
+            position: absolute;
+            top: -6px;
+            left: 40px;
+        }
+
+        .header_hidenav .hidenav_ul li .span2 {
+            position: absolute;
+            top: 5px;
+            left: 40px;
+        }
+
+        .leftbox {
+            width: 150px;
+            height: 530px;
+            /*background: pink;*/
+            float: left;
+            border-right: solid 1px #E6E6E6;
+        }
+
+        .leftbox .leftbox_top {
+            height: 35px;
+            border: solid 1px #E6E6E6;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_top span {
+            font-size: 15px;
+            color: #BBBBBB;
+            font-weight: bold;
+            line-height: 35px;
+            margin-left: 25px;
+        }
+
+        .leftbox .leftbox_top .header_top_gif {
+            margin-top: 9px;
+        }
+
+        .leftbox .leftbox_content_top {
+            margin-top: 30px;
+            margin-left: 30px;
+
+        }
+
+        .leftbox .leftbox_content_top .firstp {
+            color: #FF283C;
+        }
+
+        .leftbox .leftbox_content_top p {
+            padding: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+        }
+
+        .leftbox .leftbox_content_bottom {
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        .leftbox .leftbox_content_bottom p {
+            padding: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            position: relative;
+        }
+
+        .leftbox .leftbox_content_bottom p .span {
+            color: #32C8F0;
+            font-size: 10px;
+            border-bottom: 1px dashed #32C8F0;
+            position: absolute;
+            top: 0;
+            right: 40px;
+            font-style: italic;
+        }
+
+        .leftbox .leftbox_bottom {
+            height: 40px;
+            border: solid 1px #E6E6E6;
+            margin-top: 30px;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_bottom p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            line-height: 40px;
+            margin-left: 30px;
+        }
+
+        .leftbox .leftbox_end {
+            height: 40px;
+            border: solid 1px #E6E6E6;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_end p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            line-height: 40px;
+            margin-left: 30px;
+        }
+
+        .rightbox {
+            background-color: #F4F4F4;
+            width: 100px;
+            position: absolute;
+            height: 670px;
+            right: 0;
+            top: 127px;
+            overflow: visible !important;
+            /*float: right;*/
+        }
+
+        .rightbox .rightbox_top {
+            height: 52px;
+            width: 100px;
+            border: 1px solid #E2E2E2;
+            position: relative;
+        }
+
+        .rightbox .rightbox_top a {
+            float: left;
+        }
+
+        .rightbox_top .rightbox_top_shousuo {
+            width: 20px;
+            height: 55px;
+            background: #D5D5D5;
+            position: absolute;
+            right: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 55px;
+            cursor: pointer;
+        }
+
+        .rightbox .rightbox_content {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content a {
+            float: left;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_content .rightbox_content_a {
+            margin-left: 20px;
+        }
+
+        .rightbox .rightbox_content2 {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content2 a {
+            float: left;
+            margin-left: 20px;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content2 a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_content3 {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content3 a {
+            float: left;
+            margin-left: 20px;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content3 a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_bottom {
+            margin-left: 25px;
+            margin-top: 25px;
+        }
+
+        .rightbox .rightbox_bottom a {
+            font-size: 14px;
+            color: #6F6F6F;
+            float: left;
+            padding: 3px 0;
+        }
+
+        .rightbox .rightbox_bottom a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_bottom .rightbox_bottom_lasta {
+            margin-left: 4px;
+        }
+
+        .rightbox .rightbox_bottom_lastpic {
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+
+        .rightbox .rightbox_end {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .rightbox .rightbox_end p {
+            color: #6F6F6F;
+        }
+
+        #rightbox_endtop {
+            width: 100px;
+            height: 35px;
+            background: #D5D5D5;
+            position: absolute;
+            right: 0;
+            top: 610px;
+        }
+
+        #rightbox_endtop span {
+            display: block;
+            width: 32px;
+            height: 33px;
+            margin: 0 auto;
+            line-height: 35px;
+            font-size: 20px;
+            border-top: 3px solid black;
+        }
+
+        .content {
+            width: 995px;
+            height: 100%;
+            background: #FFFFFF;
+            float: right;
+            border: 1px solid #E3E3E3;
+            border-bottom: none;
+        }
+
+        .content .content_top {
+            float: left;
+            margin-left: 150px;
+            margin-top: 85px;
+        }
+
+        .content .content_top a, span {
+            color: #888888;
+            font-size: 14px;
+            padding: 0px 3px;
+        }
+
+        .content .pic1 {
+            float: left;
+            margin-top: 120px;
+            margin-left: -380px;
+        }
+
+        .content .content_rightgouwuche {
+            width: 545px;
+            height: 450px;
+            /*background: pink;*/
+            float: right;
+            margin-top: 15px;
+        }
+
+        .content .content_rightgouwuche p {
+            font-size: 14px;
+            padding: 2px 0px;
+        }
+
+        #content .content_rightgouwuche .p1 {
+            color: black;
+        }
+
+        #content .content_rightgouwuche .p2, .p3 {
+            color: #888888;
+        }
+
+        #content .content_rightgouwuche .p4 .span1 {
+            color: #FE8686;
+            font-weight: bold;
+        }
+
+        #content .content_rightgouwuche .p4 .span2 {
+            color: #B7DCEF;
+            font-weight: bold;
+        }
+
+        #content .content_box {
+            width: 280px;
+            height: 50px;
+            background: #E0A4AE;
+        }
+
+        #content .content_box p {
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 16px;
+        }
+
+        #content .content_rightgouwuche .p5 span {
+            font-size: 12px;
+        }
+
+        #content .content_rightgouwuche .p5 span a {
+            color: #888888;
+        }
+
+        #content table {
+            font-size: 14px;
+            float: left;
+        }
+
+        #content table tr {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #content table tr td {
+            padding: 0px 10px;
+        }
+
+        #content table tr td .shuliang {
+            background: white;
+            text-indent: 27px;
+            color: #9A888F;
+            border: 1px solid #D8D8D8;
+        }
+
+        #content table tr td .jianhao {
+            /*display: block;*/
+            width: 20px;
+            height: 20px;
+            background: #888888;
+            /*border-radius: 8px;*/
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #content table tr td .jiahao {
+            /*display: block;*/
+            width: 20px;
+            height: 20px;
+            background: #888888;
+            /*border-radius: 8px;*/
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        #content .huancun {
+            width: 250px;
+            height: 50px;
+            background: #888888;
+            float: left;
+            margin-top: 30px;
+        }
+
+        #content .huancun a {
+            color: white;
+            font-size: 22px;
+            line-height: 50px;
+            margin-left: 70px;
+        }
+
+        #content .huancun a:hover {
+            text-decoration: underline;
+        }
+
+        #content .jiarugouwuche a:hover {
+            text-decoration: underline;
+        }
+
+        #content .jiarugouwuche {
+            width: 250px;
+            height: 50px;
+            background: #E0A4AE;
+            float: left;
+            margin-top: 30px;
+            margin-left: 5px;
+        }
+
+        #content .jiarugouwuche a {
+            color: white;
+            font-size: 22px;
+            line-height: 50px;
+            margin-left: 70px;
+        }
+
+        #content .content_middlebox {
+            width: 1100px;
+            height: 105px;
+            background: #F7F7F7;
+            float: left;
+            margin-top: 40px;
+
+        }
+
+        #content .content_middlebox ul li {
+            float: left;
+            padding: 0px 55px;
+            margin-top: 33px;
+            border-right: 1px solid pink;
+        }
+
+        #content .content_middlebox ul li a {
+            font-size: 16px;
+            color: #6F6F6F;
+            text-align: center;
+        }
+
+        #content .content_middlebox ul li a:hover {
+            color: mediumvioletred;
+        }
+
+        #content .pic2 {
+            float: left;
+        }
+
+        .content_bottom {
+            float: left;
+            margin-left: 90px;
+            margin-top: 50px;
+        }
+
+        .index_end {
+            width: 1260px;
+            height: 325px;
+            border: 1px solid #E3E3E3;
+            /*background: pink;*/
+            float: left;
+            margin-top: 65px;
+        }
+
+        .index_end .index_end_leftbox {
+            float: left;
+            margin-top: 60px;
+            margin-left: 45px;
+            width: 470px;
+            height: 173px;
+            border-right: 1px solid #E3E3E3;
+        }
+
+        .index_end .index_end_leftbox p {
+            padding: 5px 0px;
+        }
+
+        .index_end .index_end_leftbox .p1 {
+            font-size: 12px;
+            color: #828282;
+        }
+
+        .index_end .index_end_leftbox .p2 {
+            font-size: 21px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p3 {
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p4 {
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p5 {
+            font-size: 10px;
+            color: #828282;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first {
+            float: left;
+            margin-left: 47px;
+            margin-top: 73px;
+            color: #999999;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first h2 {
+            font-size: 16px;
+        }
+
+        .index_end .index_end_rightbox a:hover {
+            text-decoration: underline;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first p {
+            color: #999999;
+            padding: 3px 0;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first .p1 {
+            margin-top: 30px;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom {
+            width: 700px;
+            height: 50px;
+            /*background: pink;*/
+            float: left;
+            margin-top: 35px;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom a {
+            color: white;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box {
+            width: 70px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            margin-left: 45px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box1 {
+            width: 70px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            margin-left: 3px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box2 {
+            float: left;
+            border: 1px solid #CCCCCC;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box2 input {
+            text-indent: 10px;
+            color: #CCCCCC;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box3 {
+            width: 50px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box4 {
+            width: 200px;
+            height: 45px;
+            float: left;
+            margin-left: 45px;
+            border: 1px solid #E3E3E3;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box4 p {
+            float: left;
+            margin-left: 23px;
+            margin-top: 2px;
+            color: #999999;
+        }
+
+        .indexbox_bottom {
+            width: 100%;
+            height: 100px;
+            /*background: pink;*/
+            float: left;
+        }
+
+        .indexbox_bottom ul {
+            margin-left: 120px;
+            margin-top: 30px;
+        }
+
+        .indexbox_bottom ul li {
+            float: left;
+            padding: 0 2px;
+        }
+
+        #zhezhao {
+            width: 2000px;
+            height: 100%;
+            background: black;
+            opacity: .2;
+            z-index: 9;
+            position: fixed;
+            display: none;
+        }
+
+        #denglu {
+            width: 700px;
+            height: 340px;
+            background: white;
+            float: left;
+            display: none;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -380px;
+            margin-top: 180px;
+        }
+
+        #denglu .denglutopleft {
+            width: 260px;
+            height: 50px;
+            background: black;
+            float: left;
+            margin-left: 45px;
+            margin-top: 60px;
+        }
+
+        #denglu .denglutopleft a {
+            line-height: 50px;
+            color: white;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #denglu .denglutopleft a:hover {
+            text-decoration: underline;
+        }
+
+        #denglu .denglutopright {
+            width: 260px;
+            height: 48px;
+            background: white;
+            float: left;
+            margin-top: 60px;
+            border: 1px solid black;
+        }
+
+        #denglu .denglutopright a {
+            line-height: 50px;
+            color: black;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #denglu .denglutopright a:hover {
+            text-decoration: underline;
+            color: deepskyblue;
+        }
+
+        #denglu #close {
+            float: right;
+            cursor: pointer;
+        }
+
+        #denglu .zhuyi {
+            width: 520px;
+            height: 35px;
+            background: #EEEEEE;
+            float: left;
+            margin-left: 45px;
+            margin-top: 10px;
+        }
+
+        #denglu .zhuyi p {
+            line-height: 35px;
+            font-size: 14px;
+            color: #6F6F6F;
+            margin-left: 10px;
+        }
+
+        #denglu .zhuyi p span {
+            color: black;
+            font-weight: bold;
+        }
+
+        #denglu input {
+            width: 400px;
+            height: 35px;
+            float: left;
+            margin-left: 45px;
+            margin-top: 10px;
+            text-indent: 17px;
+            color: #C8C8C8;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #E2E2E2;
+        }
+
+        #denglu .denglu_denglu {
+            width: 110px;
+            height: 80px;
+            float: left;
+            background: black;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            line-height: 80px;
+            margin-left: 12px;
+            margin-top: -34px;
+            cursor: pointer;
+        }
+
+        #denglu .checkbox {
+            float: left;
+            margin-top: 60px;
+            margin-left: -567px;
+        }
+
+        #denglu .checkbox table tr td input {
+            width: 16px;
+            height: 16px;
+        }
+
+        #denglu .checkbox table tr td p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #6F6F6F;
+            margin-left: 3px;
+        }
+
+        #denglu .denglu_bottom {
+            margin-top: 70px;
+            margin-left: -217px;
+            float: left;
+        }
+
+        #denglu .denglu_bottom li {
+            float: left;
+            padding: 0px 3px;
+        }
+
+        #denglu .denglu_bottom li a {
+            font-size: 14px;
+            color: #6F6F6F;
+        }
+
+        #denglu .denglu_bottom li a:hover {
+            text-decoration: underline;
+        }
+
+        #denglu .denglu_bottom li .firsta {
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #zhuce {
+            width: 760px;
+            height: 360px;
+            background: white;
+            float: left;
+            display: none;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -380px;
+            margin-top: 180px;
+        }
+
+        #zhuce .denglutopleft {
+            width: 260px;
+            height: 50px;
+            background: black;
+            float: left;
+            margin-left: 90px;
+            margin-top: 60px;
+        }
+
+        #zhuce .denglutopleft a {
+            line-height: 50px;
+            color: white;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #zhuce .denglutopleft a:hover {
+            text-decoration: underline;
+        }
+
+        #zhuce .denglutopright {
+            width: 260px;
+            height: 48px;
+            background: white;
+            float: left;
+            margin-top: 60px;
+            border: 1px solid black;
+        }
+
+        #zhuce .denglutopright a {
+            line-height: 50px;
+            color: black;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #zhuce .denglutopright a:hover {
+            text-decoration: underline;
+            color: deepskyblue;
+        }
+
+        #zhuce .close {
+            float: right;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box {
+            width: 550px;
+            height: 175px;
+            float: left;
+            margin-left: 90px;
+            margin-top: 20px;
+        }
+
+        #zhuce .zhuce_box input {
+            border: 1px solid #E2E2E2;
+            float: left;
+            text-indent: 10px;
+            font-weight: bold;
+        }
+
+        #zhuce .zhuce_box .input1 {
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input2 {
+            margin-top: 6px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input3 {
+            margin-top: 6px;
+            margin-left: 13px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input4 {
+            margin-top: 6px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .select {
+            margin-top: 6px;
+            margin-left: 13px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input5 {
+            margin-top: 52px;
+            margin-left: -406px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input6 {
+            float: left;
+            width: 95px;
+            height: 35px;
+            margin-top: 53px;
+            margin-left: -110px;
+        }
+
+        #zhuce .zhuce_box .yanzhengma {
+            width: 70px;
+            height: 37px;
+            float: left;
+            background: pink;
+            margin-top: 53px;
+            margin-left: -195px;
+            font-size: 16px;
+            color: green;
+            line-height: 37px;
+            text-align: center;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu {
+            width: 110px;
+            height: 170px;
+            background: black;
+            float: left;
+            margin-left: 10px;
+            margin-top: -79px;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu p {
+            text-align: center;
+            color: white;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu .zhuce_box_denglup1 {
+            font-size: 22px;
+            margin-top: 70px;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu .zhuce_box_denglup2 {
+            margin-top: 5px;
+            font-size: 10px;
+        }
+
+        #zhuce .zhuce_box .checkbox {
+            float: left;
+            margin-top: 140px;
+            position: absolute;
+            left: 90px;
+        }
+
+        #zhuce .zhuce_box_bottom_a {
+            float: right;
+            font-size: 16px;
+            color: black;
+            position: absolute;
+            right: 140px;
+            bottom: 35px;
+            text-decoration: underline;
+        }
+
+        .shangpingxinxi {
+            width: 990px;
+            height: 100px;
+            background: #F7F7F7;
+        }
+
+        .shangpingxinxi .shangpingxinxi_p1 {
+            float: left;
+            margin-top: 30px;
+            margin-left: 470px;
+        }
+
+        .shangpingxinxi .shangpingxinxi_p2 {
+            float: left;
+            margin-top: 45px;
+            margin-left: -53px;
+        }
+
+        .rightbox_bottom .weweima {
+            position: absolute;
+            right: 100px;
+            top: 350px;
+            display: none;
+        }
+
+        .pic7 {
+            margin-left: 370px;
+        }
+
+        .pic8 {
+            margin-left: 280px;
+        }
+
+        .pop_cart {
+            z-index: 20;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -240px;
+            margin-top: -160px;
+            width: 448px;
+            height: 320px;
+            background: white;
+            padding: 0 16px;
+        }
+
+        .cart_title {
+            line-height: 90px;
+            height: 90px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: #e6e6e6 dashed 1px;
+            margin-bottom: 15px;
+        }
+
+        .cart_Gname {
+            line-height: 24px;
+            height: 24px;
+            font-size: 16px;
+            text-align: center;
+            color: #bbb;
+            font-weight: bold;
+        }
+
+        .cart_Gargs {
+            line-height: 24px;
+            height: 24px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            padding-top: 25px;
+        }
+
+        .cart_operate {
+            border-top: #e6e6e6 dashed 1px;
+            margin-top: 15px;
+            padding-top: 32px;
+        }
+
+        .cancel_btn {
+            display: block;
+            border: #e2e2e2 1px solid;
+            width: 218px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-size: 16px;
+            background: #aeaeae;
+        }
+
+        .gobuy_btn {
+            background: #3e3e3e;
+            margin-left: 8px;
+            display: block;
+            border: #e2e2e2 1px solid;
+            width: 218px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .BOX {
+            float: right;
+            width: 990px;
+        }
+
+        #popCart {
+            height: 400px;
+        }
+
+        #popCart #popCartCancel {
+            float: left;
+            margin-left: 240px;
+            margin-top: -50px;
+        }
+
+    </style>
+</head>
+<body>
+<!--头部header-->
+<div class="header_hidenav">
+    <ul class="hidenav_ul">
+        <li><a href=""><img src="img/1_index/logonav.jpg" alt=""></a></li>
+        <li><a href="">最新商品</a></li>
+        <li><a href="">一周爆款</a></li>
+        <li><a href="">上衣</a></li>
+        <li><a href="">衬衫&罩衫</a></li>
+        <li><a href="">外套</a></li>
+        <li><a href="">半身裙</a></li>
+        <li><a href="">连衣裙</a></li>
+        <li><a href="">裤装</a></li>
+        <li><a href="">鞋&包</a></li>
+        <li><a href="">配饰</a></li>
+        <li><a href="">内衣</a></li>
+        <li><a href="">SUMMER</a></li>
+        <li class="header_hidenav_meizhuang"><a href="">美妆&nbsp&nbsp&nbsp<span class="span1">50%</span><span
+                class="span2">OFF</span></a></li>
+        <li><a href="">热卖商品</a></li>
+        <li><a href="">最佳口碑</a></li>
+    </ul>
+</div>
+<div class="header">
+    <a href="#"><img src="img/1_index/logo.jpg" alt="" class="header_logo"></a>
+    <!--头部导航栏-->
+    <ul class="header_ul">
+        <li><a href="#"><img src="img/1_index/minbutton2.jpg" alt="" style="height: 22px">女装区</a></li>
+        <li><a href="#"><img src="img/1_index/minbutton.jpg" alt="">男装区</a></li>
+        <li><a href="#"><img src="img/1_index/minbutton.jpg" alt="">美妆区</a></li>
+    </ul>
+    <ul class="header_right">
+        <li><a href="#">暂存架(0)</a></li>
+        <li><a href="4_cart.html">购物车(<span id="header_cart_btn">0</span>)</a></li>
+        <li><a href="#" id="navdenglu">登录</a>/<a herf="#" id="navzhuce">注册</a></li>
+    </ul>
+    <a href="#"><img src="img/1_index/top.jpg" alt="" class="header_top"></a>
+</div>
+<!--左边盒子-->
+<div class="leftbox">
+    <div class="leftbox_top">
+        <span>评论赢积分</span>
+        <img src="img/1_index/new.gif" alt="" class="header_top_gif">
+    </div>
+    <div class="leftbox_content_top">
+        <a href="#"><p class="firstp">最新商品</p></a>
+        <a href="#"><p>一周爆款</p></a>
+        <a href="#"><p>热卖商品</p></a>
+        <a href="#"><p>最佳口碑</p></a>
+    </div>
+    <div class="leftbox_content_bottom">
+        <a href="#"><p>上衣</p></a>
+        <a href="#"><p>衬衫&罩衫</p></a>
+        <a href="#"><p>外套</p></a>
+        <a href="#"><p>半身裙</p></a>
+        <a href="#"><p>连衣裙</p></a>
+        <a href="#"><p>裤装</p></a>
+        <a href="#"><p>鞋&包</p></a>
+        <a href="#"><p>配饰</p></a>
+        <a href="#"><p>内衣</p></a>
+        <a href="#"><p>SUMMER</p></a>
+        <a href="#"><p>美妆 <span class="span">50% OFF</span></p></a>
+    </div>
+    <div class="leftbox_bottom">
+        <a href="#"><p>明星赞助</p></a>
+    </div>
+    <div class="leftbox_end">
+        <a href="#"><p>专题&活动</p></a>
+    </div>
+</div>
+<!--右边盒子导航栏固定-->
+<div class="rightbox" id="rightbox">
+    <div class="rightbox_top">
+        <div class="rightbox_top_shousuo" id="rightbox_top_shousuo">></div>
+        <div class="rightbox_top_quick"><a href="#"><img src="img/1_index/5_right_nav/quick.jpg" alt=""></a></div>
+        <a href="#"><img src="img/1_index/5_right_nav/quick2.jpg" alt=""></a>
+    </div>
+    <div class="rightbox_content">
+        <img src="img/1_index/5_right_nav/user.jpg" alt="">
+        <a href="#" class="rightbox_content_a" id="rightbox_denglu">登录/</a><a href="#" id="rightbox_zhuce">注册</a>
+    </div>
+    <div class="rightbox_content2">
+        <img src="img/1_index/5_right_nav/cart.jpg" alt="">
+        <a href="#">购物车(<span id="header_CartCnt">0</span>)</a>
+    </div>
+    <div class="rightbox_content3">
+        <img src="img/1_index/5_right_nav/hellp.jpg" alt="">
+        <a href="#">暂存架(0)</a>
+    </div>
+    <div class="rightbox_bottom">
+        <a href="#"><p>今日浏览</p></a>
+        <a href="#" id="guanzhuweixin"><p>关注微信</p><img src="img/1_index/erweima.jpg" alt="" class="weweima"></a>
+        <a href="#"><p>常见问题</p></a>
+        <a href="#" class="rightbox_bottom_lasta"><p>1:1留言</p></a>
+    </div>
+    <img src="img/1_index/5_right_nav/promise_bg.jpg" alt="" class="rightbox_bottom_lastpic">
+    <div class="rightbox_end">
+        <p>100%正品保证</p>
+        <p>100%韩国直邮</p>
+    </div>
+</div>
+<!--点击回到顶部的盒子-->
+<div class="rightbox_endtop" id="rightbox_endtop"><a><span>TOP</span></a></div>
+<!--中间内容-->
+<div class="BOX">
+    <div class="bigsubject fl clear">
+        <div class="subject clear min_height">
+            <h1>我的购物车</h1>
+            <div class="cart_content_title clear" id="cart_content_title">
+                <div class="goods_detail">商品信息</div>
+                <div class="goods_price">商品单价</div>
+                <div class="goods_emoney">积分</div>
+                <div class="goods_qty">数量</div>
+                <div class="goods_sum">小计</div>
+            </div>
+            <form name="kcart" id="kcart" method="post">
+                <div id="cart_body">
+                    <div class="cart_no">暂无商品信息!</div>
+
+                </div>
+            </form>
+            <div class="cart_result clear">
+                <div class="cart_Operation clear">
+                    <label for="SelectAll_K">
+                        <input id="SelectAll_K" name="SelectAll_K" checked="" type="checkbox" value="1">
+                        <a href="javascript:;">全选</a>
+                    </label>
+                </div>
+                <div class="result_main">
+                    <div class="stock_tip" id="stock_tip"></div>
+                    <div class="stock_tip" id="eventcoupon_tip"></div>
+                    <div id="StockAmount_K_tip" style="display:none" class="clear">
+                        <div class="sign"></div>
+                        <div class="result_title"><span id="totStockAmount_K_title">活动商品金额</span></div>
+                        <div class="result_detail">¥<span class="cart_price" id="sp_totStockAmount_k">0</span></div>
+                    </div>
+                    <div id="GoodAmount_K_tip" class="clear">
+                        <div class="sign"></div>
+                        <div class="result_title"><span id="totGoodAmount_K_title">商品金额</span></div>
+                        <div class="result_detail">¥<span class="cart_price" id="sp_totgoodamount_k">0</span></div>
+                    </div>
+                    <div id="hdyh_k" style="display:none" class="clear">
+                        <div class="sign">-</div>
+                        <div class="result_title">活动优惠</div>
+                        <div class="result_detail">¥<span class="cart_price" id="sp_totstocksale_k">0</span></div>
+                    </div>
+                    <div id="hyyh_k" class="clear">
+                        <div class="sign">-</div>
+                        <div class="result_title">会员优惠</div>
+                        <div class="result_detail">¥<span class="cart_price" id="sp_totsaleamount_k">0</span></div>
+                    </div>
+                    <div class="clear">
+                        <div class="sign"></div>
+                        <div class="result_title">支付金额(不含配送费)</div>
+                        <div class="result_detail">¥<span class="cart_price" id="sp_settleamount_k">0</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="step_select clear">
+                <a id="go_buy" class="step_next" href="javascript:;">马上结算</a>
+                <a class="step_prev" href="index.html">返回首页</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="img/1_index/bottom.jpg" alt="" class="content_bottom" style="width: 990px;height: 200px">
+<!--底部下面盒子-->
+<div class="index_end">
+    <!--下面左边的盒子-->
+    <div class="index_end_leftbox">
+        <p class="p1">CALL CENTER</p>
+        <p class="p2">400 818 4371</p>
+        <p class="p3">8:00AM～17:00PM / 午休 12:00PM~13:00PM<br/>周六日，法定节假日休息</p>
+        <p class="p4">退货地址：上海市闵行区万源路2158号 弘毅大厦413室<br/>邮编：201103</p>
+        <p class="p5">上海智桓市场营销策划有限公司/网站经营许可证号 沪ICP备06036963号</p>
+    </div>
+    <!--底部右边盒子-->
+    <div class="index_end_rightbox">
+        <div class="index_end_rightbox_first">
+            <h2>新手上路</h2>
+            <a href=""><p class="p1">>怎样下订单</p></a>
+            <a href=""><p>>会员等级制度</p></a>
+            <a href=""><p>>积分&优惠券</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>关于订购</h2>
+            <a href=""><p class="p1">>支付方式</p></a>
+            <a href=""><p>>配送时间</p></a>
+            <a href=""><p>>配送费用</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>帮助中心</h2>
+            <a href=""><p class="p1">>找回密码</p></a>
+            <a href=""><p>>常见问题</p></a>
+            <a href=""><p>>公告栏</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>售后服务</h2>
+            <a href=""><p class="p1">>退货政策</p></a>
+            <a href=""><p>>退货申请</p></a>
+            <a href=""><p>>留言&回复</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>关于我们</h2>
+            <a href=""><p class="p1">>平台介绍</p></a>
+            <a href=""><p>>联系我们</p></a>
+            <a href=""><p>>加入我们</p></a>
+        </div>
+        <div class="index_end_rightbox_bottom">
+            <div class="index_end_rightbox_bottom_box"><a href="#">我要女装</a></div>
+            <div class="index_end_rightbox_bottom_box1"><a href="#">我要男装</a></div>
+            <div class="index_end_rightbox_bottom_box2"><input type="text" id="input" value="请订阅我们的邮件"
+                                                               style="width: 175px;height: 45px;"></div>
+            <div class="index_end_rightbox_bottom_box3"><a href="#">订阅</a></div>
+            <div class="index_end_rightbox_bottom_box4">
+                <p>新商品数量 218 件</p>
+                <p>热卖商品数量 4,966件</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部图片-->
+<div class="indexbox_bottom">
+    <ul>
+        <li><a href=""><img src="img/1_index/4_links/alipay.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/cert.png" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/cnnic.png" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/12377.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/12377_app.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/direct.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/charge.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/quality.jpg" alt=""></a></li>
+    </ul>
+</div>
+<div class="zhezhao" id="zhezhao"></div>
+<div class="denglu" id="denglu">
+    <div class="close" id="close">
+        <img src="img/1_index/5_right_nav/close.png" alt="">
+    </div>
+    <div class="denglutopleft"><a href="#">普通会员登录</a></div>
+    <div class="denglutopright"><a href="#">批发会员登录</a></div>
+    <div class="zhuyi">
+        <p><span>注意！</span>普通会员和批发会员账户不共享，请知晓!</p>
+    </div>
+    <input type="text" placeholder="电子邮件">
+    <input type="password" placeholder="您的密码">
+    <div class="denglu_denglu" id="denglu_denglu">登录</div>
+    <div class="checkbox">
+        <table>
+            <tr>
+                <td><input type="checkbox" id="checkbox"></td>
+                <td><p>保存电子邮件</p></td>
+            </tr>
+        </table>
+    </div>
+    <ul class="denglu_bottom">
+        <li><a href="#" class="firsta">新用户注册</a>|</li>
+        <li><a href="#">忘记密码</a>|</li>
+        <li><a href="#">支付宝登录</a></li>
+    </ul>
+</div>
+<div class="zhuce" id="zhuce">
+    <div class="close" id="close_zhuce">
+        <img src="img/1_index/5_right_nav/close.png" alt="">
+    </div>
+    <div class="denglutopleft"><a href="#">普通会员登录</a></div>
+    <div class="denglutopright"><a href="#">批发会员登录</a></div>
+    <div class="zhuce_box">
+        <input type="text" placeholder="电子邮件" style="width: 405px;height: 35px;" class="input1"><br>
+        <input type="password" placeholder="您的密码" style="width: 195px;height: 35px;" class="input2">
+        <input type="password" placeholder="请次输入确认密码" style="width: 195px;height: 35px;" class="input3"><br/>
+        <input type="text" placeholder="用户名" style="width: 195px;height: 35px;" class="input4">
+
+        <select style="width: 197px;height: 35px;" class="select">
+            <option value="" selected="selected">性别</option>
+            <option value="">女</option>
+            <option value="">男</option>
+        </select>
+
+        <input type="text" placeholder="手机号码" style="width: 195px;height: 35px;" class="input5">
+        <div class="yanzhengma" id="yanzhengma"></div>
+        <input type="text" placeholder="验证码" class="input6">
+        <div class="zhuce_box_denglu">
+            <p class="zhuce_box_denglup1">注册</p>
+            <p class="zhuce_box_denglup2">(送五元现金)</p>
+        </div>
+        <div class="checkbox">
+            <table>
+                <tr>
+                    <td><input type="checkbox" checked="checked"></td>
+                    <td><p>我已阅读并同意《时尚起义用户条款》</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="zhuce_box_bottom_a">老用户登录</a>
+</div>
+<div class="pop_cart" id="pop_cart">
+    <div class="cart_title" id="pop_cart_title">
+        商品已成功放入<span id="cart_type">购物车</span>啦！
+    </div>
+    <div class="cart_Gname" id="introduce1"></div>
+    <div class="cart_Gname" id="introduce2"></div>
+    <div class="cart_Gargs">
+        颜色：<span id="cart_color"></span> / 尺寸：<span id="cart_size"></span><span id="cart_cnt_txt"> / 数量：<span
+            id="cart_cnt"></span></span>
+    </div>
+    <div class="cart_operate clear">
+        <a class="cancel_btn fl" id="cancel_btn" href="javascript:;">返回</a>
+        <a class="gobuy_btn fl" id="gobuy_btn" href="4_cart.html">去结算</a>
+    </div>
+</div>
+
+<div class="pop_cart" id="popCart" style="display: none;">
+    <div class="pop_cart_title">商品颜色尺寸修改<a href="javascript:;" id="popCartClose">X</a></div>
+    <div class="pop_cart_loading" style="display: none;"></div>
+    <div class="pop_cart_main clear" style="display: block;">
+        <div class="pop_img"><img id="pop_img" src="//img.essxd.com/201608/D693849_x.jpg"></div>
+        <div class="pop_content">
+            <div class="pop_title"><p id="pop_CnickName">Ruffle Sleeve Loose Fit Tee</p>
+                <p id="pop_Gcodytext">荷叶边袖口亮点设计的休闲版型Ｔ恤衫</p></div>
+            <div class="clear">
+                <div class="sell_title">售价：</div>
+                <div class="sell_content"><span id="pop_Gamount">118</span> <span class="emoney"><span id="pop_Gemoney">( 积分 ¥2 )</span></span>
+                </div>
+            </div>
+            <form name="ChangeFrm">
+                <input name="Seq" value="18078446" type="hidden">
+                <input name="Gserial" value="693849" type="hidden">
+                <input name="oldGcolor" value="粉红色[핑크]" type="hidden">
+                <input name="oldGsize" value="ONE" type="hidden">
+                <input name="oldGqty" value="1" type="hidden">
+                <input name="Gset" value="0" type="hidden">
+                <div class="clear">
+                    <div class="sell_title">颜色：</div>
+                    <div class="sell_content">
+                        <select name="Gcolor" id="Gcolor">
+                            <option value="No">请选择颜色</option>
+                            <option value="粉红色[핑크]">粉红色</option>
+                            <option value="乳白色[백아이보리]">乳白色</option>
+                            <option value="酒红色[와인]">酒红色</option>
+                            <option value="黑色[블랙]">深黑色</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="clear">
+                    <div class="sell_title">尺寸：</div>
+                    <div class="sell_content">
+                        <select name="Gsize" id="Gsize">
+                            <option value="No">请选择尺寸</option>
+                            <option value="ONE SIZE">ONE SIZE</option>
+                            <option value="ONE SIZE">TWO SIZE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="Gqty clear">
+                    <div class="sell_title">数量：</div>
+                    <div class="sell_content">
+                        <input name="Gqty" onkeypress="onlyQtyNumber()" onblur="qty();" value="1" size="2" maxlength="3"
+                               type="text"><a class="reduce" id="pop_reduce" href="javascript:;">-</a><a id="pop_plus"
+                                                                                                         class="plus"
+                                                                                                         href="javascript:;">+</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pop_cart_btn clear">
+        <a id="popCartOk" class="pop_cart_ok" href="javascript:;">提交修改</a>
+        <a id="popCartCancel" class="pop_cart_cancel" href="javascript:;">取消修改</a>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+    //头部导航栏滚动发固定
+    $(function () {
+        $(window).scroll(function () {
+            var $scrollTop = $(this).scrollTop();
+            $(".header_hidenav").css("position", "fixed").slideDown();
+            if ($scrollTop == 0) {
+                $(".header_hidenav").slideUp();
+            }
+            $("#rightbox_endtop").css("position", "fixed");
+//            console.log($scrollTop);
+//右边导航栏滚动事件和固定
+            if ($scrollTop > 47) {
+                $("#rightbox").css("position", "fixed").css("top", "42px");
+            } else {
+                $("#rightbox").css("position", "fixed").css("top", "127px");
+            }
+        })
+        //点击事件右边导航栏的渐入渐出
+        var flag = true;
+        $("#rightbox_top_shousuo").click(function () {
+//            console.log(1);
+            if (flag == true) {
+                $(this).html("<");
+                $("#rightbox").animate({right: -100}, 500);
+                flag = false;
+            } else {
+                $(this).html(">");
+                $("#rightbox").animate({right: 0}, 500);
+                flag = true;
+            }
+        })
+        //点击事件回到顶部
+        $("#rightbox_endtop").click(function () {
+//            console.log(1);
+//            console.log($(document).scrollTop());
+            moscrollY(window, 0);
+        })
+    })
+    function moscrollY(obj, target) {
+        //     新的位置=当前的位置 +（目标位置-当前的位置）/10;
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            //1.先把不成求出来。
+            var step = (target - obj.scrollY) / 10;  //缓动画的步伐
+            var speed = target > obj.scrollY ? Math.ceil(step) : Math.floor(step);
+            /*scrollTo(x,y)  指定我们调滚动条的哪个一个地方*/
+//               obj.style.top = obj.scrollY + speed + "px";
+            window.scrollTo(0, obj.scrollY + speed);
+            if (target == obj.scrollY) {
+                clearInterval(obj.timer);
+            }
+        }, 30);
+    }
+    //延迟加载
+    $(function () {
+        $("img.lazy").lazyload({effect: "fadeIn"});
+    });
+    //inpunt框的焦点失去事件
+    $(function () {
+//            $("#input").on("click", function () {
+//                $(".index_end_rightbox_bottom_box2").css("border","1px solid skyblue");
+//            })
+        $("#input").focus(function () {
+            $(".index_end_rightbox_bottom_box2").css("border", "1px solid skyblue");
+            $("#input").val("").css("color", "black");
+        })
+        $("#input").blur(function () {
+            $(".index_end_rightbox_bottom_box2").css("border", "1px solid #CCCCCC");
+            $("#input").val("请订阅我们的邮件").css("color", "#CCCCCC");
+        })
+    })
+    $(function () {
+        $("#navdenglu").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#denglu").css("display", "block");
+        })
+        $("#navzhuce").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#zhuce").css("display", "block");
+        })
+        $("#rightbox_denglu").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#denglu").css("display", "block");
+        })
+        $("#rightbox_zhuce").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#zhuce").css("display", "block");
+        })
+
+        $(window).scroll(function () {
+            $("#denglu").css("position", "fixed").css("top", "20px");
+            $("#zhuce").css("position", "fixed").css("top", "20px");
+        })
+        $("#denglu input").focus(function () {
+            $(this).attr("placeholder", "").css("border", "1px solid skyblue").css("color", "black");
+        })
+        $("#zhuce input").focus(function () {
+            $(this).attr("placeholder", "").css("border", "1px solid skyblue").css("color", "black");
+        })
+        $("#zhuce input").eq(0).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "电子邮件");
+        })
+        $("#zhuce input").eq(1).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "您的密码");
+        })
+        $("#zhuce input").eq(2).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "请再次输入密码");
+        })
+        $("#zhuce input").eq(3).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "用户名");
+        })
+        $("#zhuce input").eq(4).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "手机号码");
+        })
+        $("#zhuce input").eq(5).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "验证码");
+        })
+        $("#denglu input").eq(0).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "电子邮件");
+        })
+        $("#denglu input").eq(1).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "您的密码");
+        })
+        $("#close").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#denglu").css("display", "none");
+        })
+        $("#zhezhao").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#denglu").css("display", "none");
+            $("#pop_cart").css("display", "none");
+        })
+        $("#close_zhuce").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#zhuce").css("display", "none");
+        })
+        $("#zhezhao").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#zhuce").css("display", "none");
+        })
+        var code = Math.floor(Math.random() * 9000) + 1000;
+//       alert(code);
+        $("#yanzhengma").click(function () {
+            code = Math.floor(Math.random() * 9000) + 1000;
+            $("#yanzhengma").html(code);
+        })
+        $("#yanzhengma").html(code);
+
+
+        $("#content a").eq(0).mouseenter(function () {
+            $(".hidebox").css("display", "block");
+        })
+        $("#content a").eq(0).mouseleave(function () {
+            $(".hidebox").css("display", "none");
+        })
+        $(".hidebox").mouseenter(function () {
+            $(".hidebox").css("display", "block");
+        })
+        $(".hidebox").mouseleave(function () {
+            $(".hidebox").css("display", "none");
+        })
+
+        $("#content .contenta1").mouseenter(function () {
+            $(".hidebox1").css("display", "block");
+        })
+        $("#content .contenta1").mouseleave(function () {
+            $(".hidebox1").css("display", "none");
+        })
+        $(".hidebox1").mouseenter(function () {
+            $(".hidebox1").css("display", "block");
+        })
+        $(".hidebox1").mouseleave(function () {
+            $(".hidebox1").css("display", "none");
+        })
+        $("#content .contenta2").mouseenter(function () {
+            $(".hidebox2").css("display", "block");
+        })
+        $("#content .contenta2").mouseleave(function () {
+            $(".hidebox2").css("display", "none");
+        })
+        $(".hidebox2").mouseenter(function () {
+            $(".hidebox2").css("display", "block");
+        })
+        $(".hidebox2").mouseleave(function () {
+            $(".hidebox2").css("display", "none");
+        })
+        $("#content .contenta3").mouseenter(function () {
+            $(".hidebox3").css("display", "block");
+        })
+        $("#content .contenta3").mouseleave(function () {
+            $(".hidebox3").css("display", "none");
+        })
+        $(".hidebox3").mouseenter(function () {
+            $(".hidebox3").css("display", "block");
+        })
+        $(".hidebox3").mouseleave(function () {
+            $(".hidebox3").css("display", "none");
+        })
+        $("#content .contenta4").mouseenter(function () {
+            $(".hidebox4").css("display", "block");
+        })
+        $("#content .contenta4").mouseleave(function () {
+            $(".hidebox4").css("display", "none");
+        })
+        $(".hidebox4").mouseenter(function () {
+            $(".hidebox4").css("display", "block");
+        })
+        $(".hidebox4").mouseleave(function () {
+            $(".hidebox4").css("display", "none");
+        })
+        $("#content .contenta5").mouseenter(function () {
+            $(".hidebox5").css("display", "block");
+        })
+        $("#content .contenta5").mouseleave(function () {
+            $(".hidebox5").css("display", "none");
+        })
+        $(".hidebox5").mouseenter(function () {
+            $(".hidebox5").css("display", "block");
+        })
+        $(".hidebox5").mouseleave(function () {
+            $(".hidebox5").css("display", "none");
+        })
+        $("#guanzhuweixin").mouseenter(function () {
+            $(".weweima").css("display", "block");
+        })
+        $("#guanzhuweixin").mouseleave(function () {
+            $(".weweima").css("display", "none");
+        })
+
+        var flag = true;
+        $("#checkbox").click(function () {
+            if (flag == true) {
+                confirm("在这台计算机上面要保存电子邮件地址吗?\n您的信息可能会被泄露，敬请留意。");
+                flag = false
+            } else {
+                flag = true;
+            }
+        })
+        $("#denglu_denglu").click(function () {
+            var temp = $("#denglu input").eq(0).val().trim();
+            var temp1 = $("#denglu input").eq(1).val();
+            if (temp == "") {
+                alert("请输入您的邮件地址");
+                return;
+            } else {
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (filter.test(temp)) {
+                }
+                else {
+                    alert('您的电子邮件格式不正确');
+                    return;
+                }
+            }
+//            console.log(flag);
+            if (temp1 == "") {
+                alert("请输入密码");
+            }
+        })
+    })
+    $(function () {
+        var number_Gqty = $("#Gqty").val();
+        $("#Gqty").change(function () {
+            number_Gqty = $("#Gqty").val();
+        })
+        $("#reduce").click(function () {
+            number_Gqty--;
+//            console.log(number_Gqty)
+            if (number_Gqty < 1) {
+                alert("数量不能小于1!");
+            }
+            if (number_Gqty > 0) {
+                $("#Gqty").val(number_Gqty);
+            }
+        })
+        $("#increase").click(function () {
+            number_Gqty++;
+//            console.log(number_Gqty)
+            $("#Gqty").val(number_Gqty);
+        })
+
+
+    })
+    $(function () {
+
+        $("#buy_cart_btn").click(cartBtn_click)
+        function cartBtn_click() {
+            var name = $("#goods_name").html();
+            var c_name = $("#China_name").html();
+            var price = $("#goods_price").html().replace(/\s+/g, "");
+            var integral = $("#goods_integral").html().replace(/\s+/g, "");
+            var gcolor = $("#gcolor  option:selected").html();
+            var size = $("#size  option:selected").html();
+            var Gqty = $("#Gqty").val() - 0;
+            var img = $(".good_img").attr("src");
+            if (gcolor == "请选择颜色") {
+                alert("请选择颜色")
+            } else if (size == "请选择尺寸") {
+                alert("请选择尺寸")
+            } else {
+                //	console.log(goods_cart)
+                var goodsArr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];
+                var isExist = false;//表示是否存在
+                for (var i = 0; i < goodsArr.length; i++) {
+                    //存在相同的商品
+                    if (name == goodsArr[i].name) {
+                        goodsArr[i].gqty += Gqty; //把数量++
+                        isExist = true; //存在
+                    }
+                }
+
+                //不存在,则添加新的商品
+                if (!isExist) {
+                    //使用对象保存
+                    var goodsObj = {
+                        name: name,
+                        pric: price,
+                        inte: integral,
+                        gcolor: gcolor,
+                        size: size,
+                        gqty: Gqty,
+                        c_name: c_name,
+                        img: img
+                    }
+                    goodsArr.push(goodsObj);
+                }
+
+                //保存到cookie中(加入购物车)
+                $.cookie("cart", JSON.stringify(goodsArr), {expires: 7, path: "/"});
+                console.log($.cookie("cart"));
+                //判断购物数量
+                var cart_index = JSON.parse($.cookie("cart"));
+                var cart_number = 0;
+                for (var i = 0; i < cart_index.length; i++) {
+                    var gqty = cart_index[i].gqty - 0;
+                    cart_number += gqty;
+                }
+
+                $("#header_CartCnt").html(cart_number)
+
+                //	console.log($.cookie("cart"));
+                $("#zhezhao").css("display", "block");
+                $("#pop_cart").css("display", "block");
+                //加入购物车弹出页面
+                $("#introduce1").html(name);
+                $("#introduce2").html(c_name);
+                $("#cart_color").html(gcolor);
+                $("#cart_size").html(size);
+                $("#cart_cnt").html(Gqty);
+            }
+        }
+
+        $("#cancel_btn").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#pop_cart").css("display", "none");
+        })
+    })
+
+    console.log(JSON.parse($.cookie("cart")));
+
+    var cart = JSON.parse($.cookie("cart"));
+    console.log(cart);
+
+    //新增框架添加商品
+    for (var i = 0; i < cart.length; i++) {
+
+        var cart_item = $("<div></div>").addClass("cart_item").addClass("clear");
+        cart_item.appendTo("#cart_body");
+
+        var goods_detail = $("<div></div>").addClass("goods_detail");
+        var goods_price = $("<div></div>").addClass("goods_price");
+        var goods_emoney = $("<div></div>").addClass("goods_emoney");
+        var goods_qty = $("<div></div>").addClass("goods_qty");
+        var goods_sum = $("<div></div>").addClass("goods_sum");
+
+        goods_detail.appendTo(cart_item);
+        goods_price.appendTo(cart_item);
+        goods_emoney.appendTo(cart_item);
+        goods_qty.appendTo(cart_item);
+        goods_sum.appendTo(cart_item);
+
+        //第一块区域goods_detail
+        var goods_detail_inp = $("<input type='checkbox' checked='' value='1'>")
+        var goods_detail_a = $("<a href='javascript:;'></a>");
+        var goods_title = $("<div></div>").addClass("goods_title");
+
+        goods_detail_inp.appendTo(goods_detail);
+        goods_detail_a.appendTo(goods_detail);
+        goods_title.appendTo(goods_detail);
+//        console.log(cart[i].img);
+        var goods_img = $("<img />").addClass("goods_img").attr("src", "img/1_index/1_theme/theme1.jpg");
+        goods_img.appendTo(goods_detail_a);
+
+        var p1 = $("<p class='table_cell'></p>");
+        p1.appendTo(goods_title);
+        var p1_em = $("<em></em>").html(cart[i].name);
+        var p_br = $("<br />");
+        var p1_b = $("<b></b>").html(cart[i].gcolor + " / " + cart[i].size + " SIZE♥♥♥♥♥♥♥♥♥♥♥");
+        var p1_a1 = $("<a href='javascript:;' title='修改' class='cart_edit'></a>");
+        var p1_a2 = $("<a href='javascript:;' title='收藏' class='cart_fav'></a>");
+        var p1_a3 = $("<a href='javascript:;' title='删除' class='cart_del'></a>");
+
+        p1_em.appendTo(p1);
+        p_br.appendTo(p1);
+        p1_b.appendTo(p1);
+        p_br.appendTo(p1);
+        p1_a1.appendTo(p1);
+        p1_a2.appendTo(p1);
+        p1_a3.appendTo(p1);
+
+        //第二块局域goods_price
+        var p2 = $("<p class='table_cell'></p>");
+        p2.appendTo(goods_price);
+        var p2_span = $("<span></span>");
+        p2_span.appendTo(p2);
+        var p2_span_span = $("<span class='gray'></span>").html(cart[i].pric);
+        var p2_span_strong = $("<strong></strong>");
+
+        p2_span_span.appendTo(p2_span);
+        p_br.appendTo(p2_span);
+        p2_span_strong.appendTo(p2_span);
+
+        var strong_span = $("<span></span>").html("瑪瑙会员 0% :");
+        var strong_pric = $("<span class='pric'></span>").html(cart[i].pric);
+        strong_span.appendTo(p2_span_strong);
+        strong_pric.appendTo(p2_span_strong);
+
+        //第三块区域goods_emoney
+        var p3 = $("<p class='table_cell'></p>").html(cart[i].inte);
+        p3.appendTo(goods_emoney);
+
+        //第四块区域goods_qty
+        var p4 = $("<p class='table_cell'></p>");
+        p4.appendTo(goods_qty);
+        var p4_a1 = $("<a class='reduce reduce1'></a>");
+        var p4_inp = $("<input type='text' maxlength='3' />").val(cart[i].gqty);
+        var p4_a2 = $("<a class='add add1'></a>");
+        p4_a1.appendTo(p4);
+        p4_inp.appendTo(p4);
+        p4_a2.appendTo(p4);
+
+        //第五块区域goods_sum
+        var p5 = $("<p class='table_cell'></p>");
+        p5.appendTo(goods_sum);
+        var p5_strong = $("<strong>¥ </strong>");
+        p5_strong.appendTo(p5);
+        var p5_strong_span = $("<span class='account'></span>");
+        p5_strong_span.appendTo(p5_strong);
+    }
+
+    var total_price = 0;//总价格
+    //初始化页面价格
+    for (var i = 0; i < $(".account").length; i++) {
+        var quantity = $(".goods_qty").find("input").eq(i).val();
+        var price = $(".gray").eq(i).html().replace("¥", "").substring(0, 3);
+//        console.log(quantity);
+//        console.log(price);
+        sum = quantity * price;
+//        console.log(sum);
+        $(".account").eq(i).html(sum);
+
+        total_price += ($(".account").eq(i).html() - 0);
+        console.log($(".account").eq(i).html())
+        $("#sp_totgoodamount_k").html(total_price);
+        $("#sp_settleamount_k").html(total_price);
+    }
+    if ($(".cart_item").length == 0) {
+        $(".cart_no").css("display", "block");
+    }
+
+    //减少按钮
+    $(".reduce1").click(function () {
+        var quantity = $(this).next("input").val();
+        var price = $(this).parent().parent().siblings().find(".gray").html().replace("¥", "").substring(0, 3);
+        var name = $(this).parent().parent().siblings().find("em").html();
+        console.log(price);
+        quantity--
+        if (quantity < 1) {
+            quantity++
+            alert("数量不能小于1")
+        } else {
+            $(this).next("input").val(quantity)
+            var sum = quantity * price;
+            $(this).parent().parent().next().find("span").html(sum);
+            var check = $(this).parent().parent().siblings().find("input").is(":checked");
+            if (check) {
+                //判断购物车
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].name == name) {
+                        cart[i].gqty--;
+                    }
+                }
+                $.cookie("cart", JSON.stringify(cart), {expires: 7, path: "/"});
+                console.log(JSON.parse($.cookie("cart")));
+                var cart_index = JSON.parse($.cookie("cart"));
+                var cart_number = 0;
+                for (var i = 0; i < cart_index.length; i++) {
+                    var gqty = cart_index[i].gqty - 0;
+                    cart_number += gqty;
+                }
+
+                $("#header_CartCnt").html(cart_number);
+                //判断价格
+                total_price -= price;
+                $("#sp_totgoodamount_k").html(total_price);
+                $("#sp_settleamount_k").html(total_price);
+            }
+        }
+    })
+    //增加按钮
+    $(".add1").click(function () {
+        var quantity = $(this).prev("input").val();
+        var price = $(this).parent().parent().siblings().find(".gray").html().replace("¥", "").substring(0, 3);
+        var name = $(this).parent().parent().siblings().find("em").html();
+        var gqty = $(this).parent().parent().next().find("span").html();
+        console.log(price);
+        quantity++
+        if (quantity > 0) {
+            $(this).prev("input").val(quantity)
+            var sum = quantity * price;
+            console.log(sum);
+            $(this).parent().parent().next().find("span").html(sum);
+            var check = $(this).parent().parent().siblings().find("input").is(":checked");
+            if (check) {
+                //判断购物车
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].name == name) {
+                        cart[i].gqty++
+                    }
+                }
+                $.cookie("cart", JSON.stringify(cart), {expires: 7, path: "/"});
+                console.log(JSON.parse($.cookie("cart")));
+                var cart_index = JSON.parse($.cookie("cart"));
+                var cart_number = 0;
+                for (var i = 0; i < cart_index.length; i++) {
+                    var gqty = cart_index[i].gqty - 0;
+                    cart_number += gqty;
+                }
+                $("#header_CartCnt").html(cart_number)
+//                        console.log($("#header_CartCnt").html(cart_number));
+                //判断价格
+                total_price += parseInt(price);
+                console.log(total_price);
+                $("#sp_totgoodamount_k").html(total_price);
+                $("#sp_settleamount_k").html(total_price);
+
+            }
+        }
+    })
+    //关闭修改
+    $("#popCartClose").click(function () {
+        $("#popCart").css("display", "none");
+        $("#zhezhao").css("display", "none");
+    })
+    //打开修改
+    $(".cart_edit").click(function () {
+        $("#popCart").css("display", "block");
+        $("#zhezhao").css("display", "block");
+        var src = $(this).parent().parent().parent().find("img").attr("src");
+        var name = $(this).siblings("em").html();
+        var pric = $(this).parent().parent().parent().next().find(".gray").html();
+        var inte = $(this).parent().parent().parent().next().next().find("p").html();
+        var gqty = $(this).parent().parent().parent().siblings(".goods_qty").find("input").val();
+        $("#pop_img").attr("src", src);
+        $("#pop_CnickName").html(name);
+        if ($("#pop_CnickName").html() == 'Feather Printed Frill Sleeve Blouse') {
+            $("#pop_Gcodytext").html("秋天适合穿 ♥ 夏天穿很适合OK");
+        }
+        if ($("#pop_CnickName").html() == 'Sleeveless Dress') {
+            $("#pop_Gcodytext").html("百搭风格 ★ 吊带罗纹连衣裙");
+        }
+        $("#pop_Gamount").html(pric);
+        $("#pop_Gemoney").html(inte);
+        $(".sell_content input").val(gqty);
+        //修改页面减少按钮
+        var gqt = $(".sell_content input").val() - 0;
+        console.log(gqt);
+        $("#pop_reduce").click(function () {
+            gqt--
+            if (gqt < 1) {
+                gqt++;
+                alert("商品数量不能低于1");
+            } else {
+                var prc = pric.replace("¥", "") - 0;
+                total_price -= prc;
+                $(".sell_content input").val(gqt)
+            }
+        })
+        //修改页面增加按钮
+        $("#pop_plus").click(function () {
+            gqt++
+            var prc = pric.replace("¥", "") - 0;
+            //total_price += prc;
+            $(".sell_content input").val(gqt)
+        })
+        //提交按钮
+        $("#popCartOk").click(function () {
+
+            var gname = $("#pop_CnickName").html();
+            var gqty = $(".sell_content input").val() - 0;
+            var gcolor = $("#Gcolor option:selected").html();
+            var gsize = $("#Gsize option:selected").html();
+            var prc = pric.replace("¥", "").substring(0, 3);
+            console.log(prc);
+            var sum = prc * gqty;
+            console.log(sum);
+            for (var i = 0; i < $(".cart_item").length; i++) {
+                var name = $(".goods_detail").find("em").eq(i).html();
+                if (name == gname) {
+                    $(".goods_qty").find("input").eq(i).val(gqty);
+                    $(".table_cell").find("b").eq(i).html(gcolor + " / " + gsize + "♥♥♥♥♥♥♥♥♥♥♥");
+                    $(".goods_sum").find("span").eq(i).html(sum);
+                    total_price = sum;
+                    $("#sp_totgoodamount_k").html(total_price);
+                    $("#sp_settleamount_k").html(total_price);
+                    $("#popCart").css("display", "none");
+                    $("#zhezhao").css("display", "none");
+                }
+            }
+        })
+        //取消按钮
+        $("#popCartCancel").click(function () {
+            $("#popCart").css("display", "none");
+            $("#zhezhao").css("display", "none");
+        })
+    })
+    //删除商品
+    $(".cart_del").click(function () {
+        $(this).parent().parent().parent().parent().remove();
+        var s = $(this).parent().parent().parent().siblings(".goods_sum").find("span").html() - 0;
+        var check = $(this).parent().parent().siblings("input").is(":checked");
+        var name = $(this).siblings("em").html();
+        if (check) {
+            //判断购物车
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].name == name) {
+                    cart.splice(i, 1);//删除该条数据
+                }
+            }
+            $.cookie("cart", JSON.stringify(cart), {expires: 7, path: "/"});
+            console.log(JSON.parse($.cookie("cart")));
+            var cart_index = JSON.parse($.cookie("cart"));
+            var cart_number = 0;
+            for (var i = 0; i < cart_index.length; i++) {
+                var gqty = cart_index[i].gqty - 0;
+                cart_number += gqty;
+                console.log(gqty);
+            }
+            $("#header_CartCnt").html(cart_number);
+            total_price -= s;
+            $("#sp_totgoodamount_k").html(total_price);
+            $("#sp_settleamount_k").html(total_price);
+        }
+        if ($(".cart_item").length == 0) {
+            $(".cart_no").css("display", "block");
+        }
+    })
+    //全选按钮
+    $("#SelectAll_K").click(function () {
+        var check = $(this).is(":checked");
+        //console.log(check)
+        if (!check) {
+            $("#sp_totgoodamount_k").html(0);
+            $("#sp_settleamount_k").html(0);
+            $(".goods_detail").find("input").prop("checked", false);
+        }
+        if (check) {
+            $("#sp_totgoodamount_k").html(total_price);
+            $("#sp_settleamount_k").html(total_price);
+            $(".goods_detail").find("input").prop("checked", true);
+        }
+    })
+    //商品选择按钮
+    $(".goods_detail").find("input").click(function () {
+        var check = $(this).is(":checked");
+        if (!check) {
+            var price = $(this).parent().siblings().last().find("span").html() - 0;
+            total_price -= price;
+            console.log(total_price);
+            $("#sp_totgoodamount_k").html(total_price);
+            $("#sp_settleamount_k").html(total_price);
+        } else {
+            var price = $(this).parent().siblings().last().find("span").html() - 0;
+            total_price += price;
+            //console.log(total_price);
+            $("#sp_totgoodamount_k").html(total_price);
+            $("#sp_settleamount_k").html(total_price);
+        }
+    })
+    //    console.log($("#header_cart_btn").text(1));
+    //    $("#header_cart_btn").text(1)
+    //判断购物车的数量
+    var cart_index = JSON.parse($.cookie("cart"));
+    var cart_number = 0;
+    for (var i = 0; i < cart_index.length; i++) {
+        var gqty = cart_index[i].gqty - 0;
+        cart_number += gqty;
+    }
+    $("#header_CartCnt").html(cart_number);
+    $("#header_cart_btn").html(cart_number);
+
+
+</script>

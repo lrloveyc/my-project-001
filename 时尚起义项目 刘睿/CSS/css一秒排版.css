@@ -1,0 +1,45 @@
+	字体:	
+	font-family: ;              ff tab
+	font-size: ;                fs enter
+	font-style: italic;         fsi tab 字体样式
+	font-weight: bold;          fwb tab
+	text-decoration: underline; tdu tab
+	text-align: center;         tac tab
+	text-indent: ;              ti tab 首行缩进
+	line-height: ;              lh tab
+	color: #000;                c tab
+	
+	盒子模型
+	margin: ;                    m tab
+	margin-top: ;                mt tab
+	margin-right: auto;          mra tab
+	margin-bottom: ;             mb tab
+	margin-left: ;               ml tab
+    padding: ;                   p tab
+    padding-top: ;               pt tab
+    padding-right: ;             pr tab
+    padding-bottom: ;            pb tab
+    padding-left: ;              pl tab
+    border: ;                    bo enter
+    border-top: ;                bt tab
+    border-right: ;              br tab
+    border-bottom: ;             bb tab
+	border-left: ;               bl tab    
+    
+    定位
+    float: left;                 fl tab
+	float: right;                fr tab
+    position: relative;          por poa pof tab
+    top: ;                       t tab
+    right: ;                     r tab
+    bottom: ;                    b tab
+    left: ;                      l tab
+    
+    其他
+    width: ;                     w tab
+    height: ;                    h tab
+	background: ;                bg tab    
+	overflow: hidden;            oh tab
+	display: block;              db dn tab
+	
+

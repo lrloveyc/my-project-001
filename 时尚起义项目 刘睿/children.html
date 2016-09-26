@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时尚起义</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/css一秒排版.css">
+    <script src="JS/jquery-1.12.0.js"></script>
+    <script src="JS/jquery.lazyload.js"></script>
+
+
+    <style>
+        body {
+            height: 100%;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        img {
+            /*display: block;*/
+        }
+
+        .header {
+            width: 100%;
+            height: 127px;
+            z-index: 1;
+            float: left;
+        }
+
+        .header .header_logo {
+            float: left;
+        }
+
+        .header .header_ul {
+            margin-left: 340px;
+
+        }
+
+        .header .header_ul li {
+            float: left;
+            padding: 10px;
+            margin-top: 90px;
+
+        }
+
+        .header .header_ul li a {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .header .header_right {
+            margin-right: 40px;
+
+        }
+
+        .header .header_right li {
+            float: right;
+            padding: 10px;
+            margin-top: 70px;
+
+        }
+
+        .header .header_right li a:hover {
+            text-decoration: underline;
+        }
+
+        .header .header_right li a {
+            font-size: 14px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .header .header_top {
+            float: right;
+            margin-right: 50px;
+            margin-top: -8px;
+        }
+
+        .header_hidenav {
+            z-index: 2;
+            width: 100%;
+            height: 40px;
+            float: left;
+            background: #393939;
+            display: none;
+
+        }
+
+        .header_hidenav .hidenav_ul li {
+            float: left;
+            position: relative;
+        }
+
+        .header_hidenav .hidenav_ul li a {
+            padding: 6px;
+            line-height: 40px;
+            color: white;
+            font-size: 16px;
+            border-right: 1px solid #585858;
+        }
+
+        .header_hidenav .hidenav_ul li span {
+            color: #32C8F0;
+            font-size: 10px;
+        }
+
+        .header_hidenav .hidenav_ul li .span1 {
+            position: absolute;
+            top: -6px;
+            left: 40px;
+        }
+
+        .header_hidenav .hidenav_ul li .span2 {
+            position: absolute;
+            top: 5px;
+            left: 40px;
+        }
+
+        .leftbox {
+            width: 150px;
+            height: 530px;
+            /*background: pink;*/
+            float: left;
+            border-right: solid 1px #E6E6E6;
+        }
+
+        .leftbox .leftbox_top {
+            height: 35px;
+            border: solid 1px #E6E6E6;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_top span {
+            font-size: 15px;
+            color: #BBBBBB;
+            font-weight: bold;
+            line-height: 35px;
+            margin-left: 25px;
+        }
+
+        .leftbox .leftbox_top .header_top_gif {
+            margin-top: 9px;
+        }
+
+        .leftbox .leftbox_content_top {
+            margin-top: 30px;
+            margin-left: 30px;
+
+        }
+
+        .leftbox .leftbox_content_top .firstp {
+            color: #FF283C;
+        }
+
+        .leftbox .leftbox_content_top p {
+            padding: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+        }
+
+        .leftbox .leftbox_content_bottom {
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+
+        .leftbox .leftbox_content_bottom p {
+            padding: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            position: relative;
+        }
+
+        .leftbox .leftbox_content_bottom p .span {
+            color: #32C8F0;
+            font-size: 10px;
+            border-bottom: 1px dashed #32C8F0;
+            position: absolute;
+            top: 0;
+            right: 40px;
+            font-style: italic;
+        }
+
+        .leftbox .leftbox_bottom {
+            height: 40px;
+            border: solid 1px #E6E6E6;
+            margin-top: 30px;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_bottom p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            line-height: 40px;
+            margin-left: 30px;
+        }
+
+        .leftbox .leftbox_end {
+            height: 40px;
+            border: solid 1px #E6E6E6;
+            border-right: none;
+        }
+
+        .leftbox .leftbox_end p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6F6F6F;
+            line-height: 40px;
+            margin-left: 30px;
+        }
+
+        .rightbox {
+            background-color: #F4F4F4;
+            width: 100px;
+            position: absolute;
+            height: 670px;
+            right: 0;
+            top: 127px;
+            overflow: visible !important;
+            /*float: right;*/
+        }
+
+        .rightbox .rightbox_top {
+            height: 52px;
+            width: 100px;
+            border: 1px solid #E2E2E2;
+            position: relative;
+        }
+
+        .rightbox .rightbox_top a {
+            float: left;
+        }
+
+        .rightbox_top .rightbox_top_shousuo {
+            width: 20px;
+            height: 55px;
+            background: #D5D5D5;
+            position: absolute;
+            right: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 55px;
+            cursor: pointer;
+        }
+
+        .rightbox .rightbox_content {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content a {
+            float: left;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_content .rightbox_content_a {
+            margin-left: 20px;
+        }
+
+        .rightbox .rightbox_content2 {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content2 a {
+            float: left;
+            margin-left: 20px;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content2 a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_content3 {
+            height: 100px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .rightbox .rightbox_content3 a {
+            float: left;
+            margin-left: 20px;
+            font-size: 15px;
+            color: #6F6F6F;
+        }
+
+        .rightbox .rightbox_content3 a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_bottom {
+            margin-left: 25px;
+            margin-top: 25px;
+        }
+
+        .rightbox .rightbox_bottom a {
+            font-size: 14px;
+            color: #6F6F6F;
+            float: left;
+            padding: 3px 0;
+        }
+
+        .rightbox .rightbox_bottom a:hover {
+            color: black;
+        }
+
+        .rightbox .rightbox_bottom .rightbox_bottom_lasta {
+            margin-left: 4px;
+        }
+
+        .rightbox .rightbox_bottom_lastpic {
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+
+        .rightbox .rightbox_end {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .rightbox .rightbox_end p {
+            color: #6F6F6F;
+        }
+
+        #rightbox_endtop {
+            width: 100px;
+            height: 35px;
+            background: #D5D5D5;
+            position: absolute;
+            right: 0;
+            top: 610px;
+        }
+
+        #rightbox_endtop span {
+            display: block;
+            width: 32px;
+            height: 33px;
+            margin: 0 auto;
+            line-height: 35px;
+            font-size: 20px;
+            border-top: 3px solid black;
+        }
+
+        .content {
+            width: 995px;
+            height: 100%;
+            background: #FFFFFF;
+            float: right;
+            border: 1px solid #E3E3E3;
+            border-bottom: none;
+        }
+
+        .content img {
+            float: left;
+        }
+
+        .content .content_pic1 {
+            float: right;
+        }
+
+        .content .content_top {
+            margin-top: 50px;
+
+            float: left;
+        }
+
+        .content .content_NewArrivals {
+            height: 130px;
+            width: 100%;
+            line-height: 150px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            float: left;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .content .content_list_NewArrivals li {
+            float: left;
+            padding: 20px 4px;
+        }
+
+        .content .content_list_NewArrivals li .p1 {
+            color: #BED359;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .content .content_list_NewArrivals li .p2 a {
+            color: #999999;
+        }
+
+        .content .content_list_NewArrivals li .p3 a {
+            color: #999999;
+        }
+
+        .content .content_list_NewArrivals li .p4 a {
+            color: black;
+        }
+
+        .content .content_list_NewArrivals li p a:hover {
+            text-decoration: underline;
+            color: #FE7F7F;
+        }
+
+        .content .content_BestItems {
+            height: 130px;
+            width: 100%;
+            line-height: 150px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            float: left;
+            font-family: 'Exo 2', sans-serif;
+            border-top: 1px solid #E3E3E3;
+            margin-top: 35px;
+        }
+
+        .content .content_list_BestItems li {
+            float: left;
+            padding: 20px 4px;
+        }
+
+        .content .content_list_BestItems li .p1 {
+            color: #FE7F7F;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .content .content_list_BestItems li .p1 .p1_span1 {
+            color: #ADD7EC;
+        }
+
+        .content .content_list_BestItems li .p1 .p1_span2 {
+            color: #DFC4ED;
+        }
+
+        .content .content_list_BestItems li .p2 a {
+            color: #999999;
+        }
+
+        .content .content_list_BestItems li .p3 a {
+            color: #999999;
+        }
+
+        .content .content_list_BestItems li .p4 a {
+            color: black;
+        }
+
+        .content .content_list_BestItems li p a:hover {
+            text-decoration: underline;
+            color: #FE7F7F;
+        }
+
+        .content_bottom {
+            float: left;
+            margin-left: 90px;
+            margin-top: 50px;
+        }
+
+        .index_end {
+            width: 1260px;
+            height: 325px;
+            border: 1px solid #E3E3E3;
+            /*background: pink;*/
+            float: left;
+            margin-top: 65px;
+        }
+
+        .index_end .index_end_leftbox {
+            float: left;
+            margin-top: 60px;
+            margin-left: 45px;
+            width: 470px;
+            height: 173px;
+            border-right: 1px solid #E3E3E3;
+        }
+
+        .index_end .index_end_leftbox p {
+            padding: 5px 0px;
+        }
+
+        .index_end .index_end_leftbox .p1 {
+            font-size: 12px;
+            color: #828282;
+        }
+
+        .index_end .index_end_leftbox .p2 {
+            font-size: 21px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p3 {
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p4 {
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .index_end .index_end_leftbox .p5 {
+            font-size: 10px;
+            color: #828282;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first {
+            float: left;
+            margin-left: 47px;
+            margin-top: 73px;
+            color: #999999;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first h2 {
+            font-size: 16px;
+        }
+
+        .index_end .index_end_rightbox a:hover {
+            text-decoration: underline;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first p {
+            color: #999999;
+            padding: 3px 0;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_first .p1 {
+            margin-top: 30px;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom {
+            width: 700px;
+            height: 50px;
+            /*background: pink;*/
+            float: left;
+            margin-top: 35px;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom a {
+            color: white;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box {
+            width: 70px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            margin-left: 45px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box1 {
+            width: 70px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            margin-left: 3px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box2 {
+            float: left;
+            border: 1px solid #CCCCCC;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box2 input {
+            text-indent: 10px;
+            color: #CCCCCC;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box3 {
+            width: 50px;
+            height: 45px;
+            background: #999999;
+            text-align: center;
+            line-height: 45px;
+            float: left;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box4 {
+            width: 200px;
+            height: 45px;
+            float: left;
+            margin-left: 45px;
+            border: 1px solid #E3E3E3;
+        }
+
+        .index_end .index_end_rightbox .index_end_rightbox_bottom .index_end_rightbox_bottom_box4 p {
+            float: left;
+            margin-left: 23px;
+            margin-top: 2px;
+            color: #999999;
+        }
+
+        .indexbox_bottom {
+            width: 100%;
+            height: 100px;
+            /*background: pink;*/
+            float: left;
+        }
+
+        .indexbox_bottom ul {
+            margin-left: 120px;
+            margin-top: 30px;
+        }
+
+        .indexbox_bottom ul li {
+            float: left;
+            padding: 0 2px;
+        }
+
+        #zhezhao {
+            width: 2000px;
+            height: 100%;
+            background: black;
+            opacity: .2;
+            z-index: 9;
+            position: fixed;
+            display: none;
+        }
+
+        #denglu {
+            width: 700px;
+            height: 340px;
+            background: white;
+            float: left;
+            display: none;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -380px;
+            margin-top: 180px;
+        }
+
+        #denglu .denglutopleft {
+            width: 260px;
+            height: 50px;
+            background: black;
+            float: left;
+            margin-left: 45px;
+            margin-top: 60px;
+        }
+
+        #denglu .denglutopleft a {
+            line-height: 50px;
+            color: white;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #denglu .denglutopleft a:hover {
+            text-decoration: underline;
+        }
+
+        #denglu .denglutopright {
+            width: 260px;
+            height: 48px;
+            background: white;
+            float: left;
+            margin-top: 60px;
+            border: 1px solid black;
+        }
+
+        #denglu .denglutopright a {
+            line-height: 50px;
+            color: black;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #denglu .denglutopright a:hover {
+            text-decoration: underline;
+            color: deepskyblue;
+        }
+
+        #denglu #close {
+            float: right;
+            cursor: pointer;
+        }
+
+        #denglu .zhuyi {
+            width: 520px;
+            height: 35px;
+            background: #EEEEEE;
+            float: left;
+            margin-left: 45px;
+            margin-top: 10px;
+        }
+
+        #denglu .zhuyi p {
+            line-height: 35px;
+            font-size: 14px;
+            color: #6F6F6F;
+            margin-left: 10px;
+        }
+
+        #denglu .zhuyi p span {
+            color: black;
+            font-weight: bold;
+        }
+
+        #denglu input {
+            width: 400px;
+            height: 35px;
+            float: left;
+            margin-left: 45px;
+            margin-top: 10px;
+            text-indent: 17px;
+            color: #C8C8C8;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #E2E2E2;
+        }
+
+        #denglu .denglu_denglu {
+            width: 110px;
+            height: 80px;
+            float: left;
+            background: black;
+            color: white;
+            font-size: 25px;
+            text-align: center;
+            line-height: 80px;
+            margin-left: 12px;
+            margin-top: -34px;
+            cursor: pointer;
+        }
+
+        #denglu .checkbox {
+            float: left;
+            margin-top: 60px;
+            margin-left: -567px;
+        }
+
+        #denglu .checkbox table tr td input {
+            width: 16px;
+            height: 16px;
+        }
+
+        #denglu .checkbox table tr td p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #6F6F6F;
+            margin-left: 3px;
+        }
+
+        #denglu .denglu_bottom {
+            margin-top: 70px;
+            margin-left: -217px;
+            float: left;
+        }
+
+        #denglu .denglu_bottom li {
+            float: left;
+            padding: 0px 3px;
+        }
+
+        #denglu .denglu_bottom li a {
+            font-size: 14px;
+            color: #6F6F6F;
+        }
+
+        #denglu .denglu_bottom li a:hover {
+            text-decoration: underline;
+        }
+
+        #denglu .denglu_bottom li .firsta {
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #zhuce {
+            width: 760px;
+            height: 360px;
+            background: white;
+            float: left;
+            display: none;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -380px;
+            margin-top: 180px;
+        }
+
+        #zhuce .denglutopleft {
+            width: 260px;
+            height: 50px;
+            background: black;
+            float: left;
+            margin-left: 90px;
+            margin-top: 60px;
+        }
+
+        #zhuce .denglutopleft a {
+            line-height: 50px;
+            color: white;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #zhuce .denglutopleft a:hover {
+            text-decoration: underline;
+        }
+
+        #zhuce .denglutopright {
+            width: 260px;
+            height: 48px;
+            background: white;
+            float: left;
+            margin-top: 60px;
+            border: 1px solid black;
+        }
+
+        #zhuce .denglutopright a {
+            line-height: 50px;
+            color: black;
+            font-size: 14px;
+            margin-left: 80px;
+        }
+
+        #zhuce .denglutopright a:hover {
+            text-decoration: underline;
+            color: deepskyblue;
+        }
+
+        #zhuce .close {
+            float: right;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box {
+            width: 550px;
+            height: 175px;
+            float: left;
+            margin-left: 90px;
+            margin-top: 20px;
+        }
+
+        #zhuce .zhuce_box input {
+            border: 1px solid #E2E2E2;
+            float: left;
+            text-indent: 10px;
+            font-weight: bold;
+        }
+
+        #zhuce .zhuce_box .input1 {
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input2 {
+            margin-top: 6px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input3 {
+            margin-top: 6px;
+            margin-left: 13px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input4 {
+            margin-top: 6px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .select {
+            margin-top: 6px;
+            margin-left: 13px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input5 {
+            margin-top: 52px;
+            margin-left: -406px;
+            float: left;
+        }
+
+        #zhuce .zhuce_box .input6 {
+            float: left;
+            width: 95px;
+            height: 35px;
+            margin-top: 53px;
+            margin-left: -110px;
+        }
+
+        #zhuce .zhuce_box .yanzhengma {
+            width: 70px;
+            height: 37px;
+            float: left;
+            background: pink;
+            margin-top: 53px;
+            margin-left: -195px;
+            font-size: 16px;
+            color: green;
+            line-height: 37px;
+            text-align: center;
+            font-style: italic;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu {
+            width: 110px;
+            height: 170px;
+            background: black;
+            float: left;
+            margin-left: 10px;
+            margin-top: -79px;
+            cursor: pointer;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu p {
+            text-align: center;
+            color: white;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu .zhuce_box_denglup1 {
+            font-size: 22px;
+            margin-top: 70px;
+        }
+
+        #zhuce .zhuce_box .zhuce_box_denglu .zhuce_box_denglup2 {
+            margin-top: 5px;
+            font-size: 10px;
+        }
+
+        #zhuce .zhuce_box .checkbox {
+            float: left;
+            margin-top: 140px;
+            position: absolute;
+            left: 90px;
+        }
+
+        #zhuce .zhuce_box_bottom_a {
+            float: right;
+            font-size: 16px;
+            color: black;
+            position: absolute;
+            right: 140px;
+            bottom: 35px;
+            text-decoration: underline;
+        }
+
+        .content .hidebox {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 153px;
+            top: 363px;
+            display: none;
+        }
+
+        .content .hidebox .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content .hidebox1 {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 393px;
+            top: 363px;
+            display: none;
+        }
+
+        .content .hidebox1 .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox1 p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox1 p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content .hidebox2 {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 633px;
+            top: 363px;
+            display: none;
+        }
+
+        .content .hidebox2 .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox2 p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox2 p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content .hidebox3 {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 153px;
+            top: 911px;
+            display: none;
+        }
+
+        .content .hidebox3 .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox3 p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox3 p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content .hidebox4 {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 393px;
+            top: 911px;
+            display: none;
+        }
+
+        .content .hidebox4 .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox4 p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox4 p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .content .hidebox5 {
+            height: 95px;
+            width: 240px;
+            background: black;
+            opacity: .6;
+            position: absolute;
+            left: 633px;
+            top: 911px;
+            display: none;
+        }
+
+        .content .hidebox5 .p2 {
+            margin-top: 15px;
+        }
+
+        .content .hidebox5 p {
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content .hidebox5 p a {
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        .rightbox_bottom  .weweima{
+            position: absolute;
+            right: 100px;
+            top:350px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<!--头部header-->
+<div class="header_hidenav">
+    <ul class="hidenav_ul">
+        <li><a href=""><img src="img/1_index/logonav.jpg" alt=""></a></li>
+        <li><a href="">最新商品</a></li>
+        <li><a href="">一周爆款</a></li>
+        <li><a href="">上衣</a></li>
+        <li><a href="">衬衫&罩衫</a></li>
+        <li><a href="">外套</a></li>
+        <li><a href="">半身裙</a></li>
+        <li><a href="">连衣裙</a></li>
+        <li><a href="">裤装</a></li>
+        <li><a href="">鞋&包</a></li>
+        <li><a href="">配饰</a></li>
+        <li><a href="">内衣</a></li>
+        <li><a href="">SUMMER</a></li>
+        <li class="header_hidenav_meizhuang"><a href="">美妆&nbsp&nbsp&nbsp<span class="span1">50%</span><span
+                class="span2">OFF</span></a></li>
+        <li><a href="">热卖商品</a></li>
+        <li><a href="">最佳口碑</a></li>
+    </ul>
+</div>
+<div class="header">
+    <a href="#"><img src="img/1_index/logo.jpg" alt="" class="header_logo"></a>
+    <!--头部导航栏-->
+    <ul class="header_ul">
+        <li><a href="#"><img src="img/1_index/minbutton2.jpg" alt="" style="height: 22px">女装区</a></li>
+        <li><a href="#"><img src="img/1_index/minbutton.jpg" alt="">男装区</a></li>
+        <li><a href="#"><img src="img/1_index/minbutton.jpg" alt="">美妆区</a></li>
+    </ul>
+    <ul class="header_right">
+        <li><a href="#">暂存架(0)</a></li>
+        <li><a href="#">购物车(0)</a></li>
+        <li><a href="#" id="navdenglu">登录</a>/<a herf="#" id="navzhuce">注册</a></li>
+    </ul>
+    <a href="#"><img src="img/1_index/top.jpg" alt="" class="header_top"></a>
+</div>
+<!--左边盒子-->
+<div class="leftbox">
+    <div class="leftbox_top">
+        <span>评论赢积分</span>
+        <img src="img/1_index/new.gif" alt="" class="header_top_gif">
+    </div>
+    <div class="leftbox_content_top">
+        <a href="#"><p class="firstp">最新商品</p></a>
+        <a href="#"><p>一周爆款</p></a>
+        <a href="#"><p>热卖商品</p></a>
+        <a href="#"><p>最佳口碑</p></a>
+    </div>
+    <div class="leftbox_content_bottom">
+        <a href="#"><p>上衣</p></a>
+        <a href="#"><p>衬衫&罩衫</p></a>
+        <a href="#"><p>外套</p></a>
+        <a href="#"><p>半身裙</p></a>
+        <a href="#"><p>连衣裙</p></a>
+        <a href="#"><p>裤装</p></a>
+        <a href="#"><p>鞋&包</p></a>
+        <a href="#"><p>配饰</p></a>
+        <a href="#"><p>内衣</p></a>
+        <a href="#"><p>SUMMER</p></a>
+        <a href="#"><p>美妆 <span class="span">50% OFF</span></p></a>
+    </div>
+    <div class="leftbox_bottom">
+        <a href="#"><p>明星赞助</p></a>
+    </div>
+    <div class="leftbox_end">
+        <a href="#"><p>专题&活动</p></a>
+    </div>
+</div>
+<!--右边盒子导航栏固定-->
+<div class="rightbox" id="rightbox">
+    <div class="rightbox_top">
+        <div class="rightbox_top_shousuo" id="rightbox_top_shousuo">></div>
+        <div class="rightbox_top_quick"><a href="#"><img src="img/1_index/5_right_nav/quick.jpg" alt=""></a></div>
+        <a href="#"><img src="img/1_index/5_right_nav/quick2.jpg" alt=""></a>
+    </div>
+    <div class="rightbox_content">
+        <img src="img/1_index/5_right_nav/user.jpg" alt="">
+        <a href="#" class="rightbox_content_a" id="rightbox_denglu">登录/</a><a href="#" id="rightbox_zhuce">注册</a>
+    </div>
+    <div class="rightbox_content2">
+        <img src="img/1_index/5_right_nav/cart.jpg" alt="">
+        <a href="#">购物车(0)</a>
+    </div>
+    <div class="rightbox_content3">
+        <img src="img/1_index/5_right_nav/hellp.jpg" alt="">
+        <a href="#">暂存架(0)</a>
+    </div>
+    <div class="rightbox_bottom">
+        <a href="#"><p>今日浏览</p></a>
+        <a href="#" id="guanzhuweixin"><p>关注微信</p><img src="img/1_index/erweima.jpg" alt="" class="weweima"></a>
+        <a href="#"><p>常见问题</p></a>
+        <a href="#" class="rightbox_bottom_lasta"><p>1:1留言</p></a>
+    </div>
+    <img src="img/1_index/5_right_nav/promise_bg.jpg" alt="" class="rightbox_bottom_lastpic">
+    <div class="rightbox_end">
+        <p>100%正品保证</p>
+        <p>100%韩国直邮</p>
+    </div>
+</div>
+<!--点击回到顶部的盒子-->
+<div class="rightbox_endtop" id="rightbox_endtop"><a><span>TOP</span></a></div>
+<!--中间内容-->
+<div class="content" id="content">
+    <img src="img/3_subpage/meinv.jpg" alt="">
+
+    <ul class="content_list_NewArrivals">
+        <li>
+            <a href=""><img src="img/3_subpage/1.gif" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">柔软舒适穿着感的基本款鞋子产品</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 215</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/2.gif" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 216</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/3.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 217</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/4.gif" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 218</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/5.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 219</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/6.gif" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 220</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/7.gif" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 221</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/8.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 222</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/9.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 223</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/10.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 224</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/11.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 225</p>
+        </li>
+        <li>
+            <a href=""><img src="img/3_subpage/12.jpg" alt=""></a>
+            <p class="p1">New!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+
+
+    </ul>
+
+    <ul class="content_list_BestItems">
+        <!--1-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/13.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/14.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/15.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/16.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--2-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/17.gif" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/18.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/19.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/20.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--3-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/21.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/22.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/23.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/24.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--4-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/25.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/26.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/27.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/28.gif" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--5-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/29.gif" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/30.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/31.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/32.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--6-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/33.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/34.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/35.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/36.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--7-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/37.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/38.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/39.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/40.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <!--8-->
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/41.gif" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/42.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/43.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/44.jpg" alt=""></a>
+            <p class="p1">Hot!</p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+        <li>
+            <a href=""><img class="lazy" data-original="img/3_subpage/45.jpg" alt=""></a>
+            <p class="p1">Hot! <span class="p1_span1">WEEKLY!</span> <span class="p1_span2">TOP!</span></p>
+            <p class="p2"><a href="">러블리함이 돋보이는 러플 체크 스커트 ~!</a></p>
+            <p class="p3"><a href="#">♥ 9色 ♥ 夏天必备的人字拖</a></p>
+            <p class="p4"><a href="#">Checked Uneven Skirt</a></p>
+            <p class="p5">￥ 282</p>
+        </li>
+    </ul>
+
+</div>
+<img src="img/1_index/bottom.jpg" alt="" class="content_bottom" style="width: 990px;height: 200px">
+<!--底部下面盒子-->
+<div class="index_end">
+    <!--下面左边的盒子-->
+    <div class="index_end_leftbox">
+        <p class="p1">CALL CENTER</p>
+        <p class="p2">400 818 4371</p>
+        <p class="p3">8:00AM～17:00PM / 午休 12:00PM~13:00PM<br/>周六日，法定节假日休息</p>
+        <p class="p4">退货地址：上海市闵行区万源路2158号 弘毅大厦413室<br/>邮编：201103</p>
+        <p class="p5">上海智桓市场营销策划有限公司/网站经营许可证号 沪ICP备06036963号</p>
+    </div>
+    <!--底部右边盒子-->
+    <div class="index_end_rightbox">
+        <div class="index_end_rightbox_first">
+            <h2>新手上路</h2>
+            <a href=""><p class="p1">>怎样下订单</p></a>
+            <a href=""><p>>会员等级制度</p></a>
+            <a href=""><p>>积分&优惠券</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>关于订购</h2>
+            <a href=""><p class="p1">>支付方式</p></a>
+            <a href=""><p>>配送时间</p></a>
+            <a href=""><p>>配送费用</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>帮助中心</h2>
+            <a href=""><p class="p1">>找回密码</p></a>
+            <a href=""><p>>常见问题</p></a>
+            <a href=""><p>>公告栏</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>售后服务</h2>
+            <a href=""><p class="p1">>退货政策</p></a>
+            <a href=""><p>>退货申请</p></a>
+            <a href=""><p>>留言&回复</p></a>
+        </div>
+        <div class="index_end_rightbox_first">
+            <h2>关于我们</h2>
+            <a href=""><p class="p1">>平台介绍</p></a>
+            <a href=""><p>>联系我们</p></a>
+            <a href=""><p>>加入我们</p></a>
+        </div>
+        <div class="index_end_rightbox_bottom">
+            <div class="index_end_rightbox_bottom_box"><a href="#">我要女装</a></div>
+            <div class="index_end_rightbox_bottom_box1"><a href="#">我要男装</a></div>
+            <div class="index_end_rightbox_bottom_box2"><input type="text" id="input" value="请订阅我们的邮件"
+                                                               style="width: 175px;height: 45px;"></div>
+            <div class="index_end_rightbox_bottom_box3"><a href="#">订阅</a></div>
+            <div class="index_end_rightbox_bottom_box4">
+                <p>新商品数量 218 件</p>
+                <p>热卖商品数量 4,966件</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部图片-->
+<div class="indexbox_bottom">
+    <ul>
+        <li><a href=""><img src="img/1_index/4_links/alipay.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/cert.png" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/cnnic.png" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/12377.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/12377_app.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/direct.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/charge.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/1_index/4_links/quality.jpg" alt=""></a></li>
+    </ul>
+</div>
+<div class="zhezhao" id="zhezhao"></div>
+<div class="denglu" id="denglu">
+    <div class="close" id="close">
+        <img src="img/1_index/5_right_nav/close.png" alt="">
+    </div>
+    <div class="denglutopleft"><a href="#">普通会员登录</a></div>
+    <div class="denglutopright"><a href="#">批发会员登录</a></div>
+    <div class="zhuyi">
+        <p><span>注意！</span>普通会员和批发会员账户不共享，请知晓!</p>
+    </div>
+    <input type="text" placeholder="电子邮件">
+    <input type="password" placeholder="您的密码">
+    <div class="denglu_denglu" id="denglu_denglu">登录</div>
+    <div class="checkbox">
+        <table>
+            <tr>
+                <td><input type="checkbox" id="checkbox"></td>
+                <td><p>保存电子邮件</p></td>
+            </tr>
+        </table>
+    </div>
+    <ul class="denglu_bottom">
+        <li><a href="#" class="firsta">新用户注册</a>|</li>
+        <li><a href="#">忘记密码</a>|</li>
+        <li><a href="#">支付宝登录</a></li>
+    </ul>
+</div>
+<div class="zhuce" id="zhuce">
+    <div class="close" id="close_zhuce">
+        <img src="img/1_index/5_right_nav/close.png" alt="">
+    </div>
+    <div class="denglutopleft"><a href="#">普通会员登录</a></div>
+    <div class="denglutopright"><a href="#">批发会员登录</a></div>
+    <div class="zhuce_box">
+        <input type="text" placeholder="电子邮件" style="width: 405px;height: 35px;" class="input1"><br>
+        <input type="password" placeholder="您的密码" style="width: 195px;height: 35px;" class="input2">
+        <input type="password" placeholder="请次输入确认密码" style="width: 195px;height: 35px;" class="input3"><br/>
+        <input type="text" placeholder="用户名" style="width: 195px;height: 35px;" class="input4">
+
+        <select style="width: 197px;height: 35px;" class="select">
+            <option value="" selected="selected">性别</option>
+            <option value="">女</option>
+            <option value="">男</option>
+        </select>
+
+        <input type="text" placeholder="手机号码" style="width: 195px;height: 35px;" class="input5">
+        <div class="yanzhengma" id="yanzhengma"></div>
+        <input type="text" placeholder="验证码" class="input6">
+        <div class="zhuce_box_denglu">
+            <p class="zhuce_box_denglup1">注册</p>
+            <p class="zhuce_box_denglup2">(送五元现金)</p>
+        </div>
+        <div class="checkbox">
+            <table>
+                <tr>
+                    <td><input type="checkbox" checked="checked"></td>
+                    <td><p>我已阅读并同意《时尚起义用户条款》</p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="zhuce_box_bottom_a">老用户登录</a>
+</div>
+
+</body>
+</html>
+<script>
+    //头部导航栏滚动发固定
+    $(function () {
+        $(window).scroll(function () {
+            var $scrollTop = $(this).scrollTop();
+            $(".header_hidenav").css("position", "fixed").slideDown();
+            if ($scrollTop == 0) {
+                $(".header_hidenav").slideUp();
+            }
+            $("#rightbox_endtop").css("position", "fixed");
+            console.log($scrollTop);
+//右边导航栏滚动事件和固定
+            if ($scrollTop > 47) {
+                $("#rightbox").css("position", "fixed").css("top", "42px");
+            } else {
+                $("#rightbox").css("position", "fixed").css("top", "127px");
+            }
+        })
+        //点击事件右边导航栏的渐入渐出
+        var flag = true;
+        $("#rightbox_top_shousuo").click(function () {
+//            console.log(1);
+            if (flag == true) {
+                $(this).html("<");
+                $("#rightbox").animate({right: -100}, 500);
+                flag = false;
+            } else {
+                $(this).html(">");
+                $("#rightbox").animate({right: 0}, 500);
+                flag = true;
+            }
+        })
+        //点击事件回到顶部
+        $("#rightbox_endtop").click(function () {
+//            console.log(1);
+//            console.log($(document).scrollTop());
+            moscrollY(window, 0);
+        })
+    })
+    function moscrollY(obj, target) {
+        //     新的位置=当前的位置 +（目标位置-当前的位置）/10;
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            //1.先把不成求出来。
+            var step = (target - obj.scrollY) / 10;  //缓动画的步伐
+            var speed = target > obj.scrollY ? Math.ceil(step) : Math.floor(step);
+            /*scrollTo(x,y)  指定我们调滚动条的哪个一个地方*/
+//               obj.style.top = obj.scrollY + speed + "px";
+            window.scrollTo(0, obj.scrollY + speed);
+            if (target == obj.scrollY) {
+                clearInterval(obj.timer);
+            }
+        }, 30);
+    }
+    //延迟加载
+    $(function () {
+        $("img.lazy").lazyload({effect: "fadeIn"});
+    });
+    //inpunt框的焦点失去事件
+    $(function () {
+//            $("#input").on("click", function () {
+//                $(".index_end_rightbox_bottom_box2").css("border","1px solid skyblue");
+//            })
+        $("#input").focus(function () {
+            $(".index_end_rightbox_bottom_box2").css("border", "1px solid skyblue");
+            $("#input").val("").css("color", "black");
+        })
+        $("#input").blur(function () {
+            $(".index_end_rightbox_bottom_box2").css("border", "1px solid #CCCCCC");
+            $("#input").val("请订阅我们的邮件").css("color", "#CCCCCC");
+        })
+    })
+    $(function () {
+        $("#navdenglu").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#denglu").css("display", "block");
+        })
+        $("#navzhuce").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#zhuce").css("display", "block");
+        })
+        $("#rightbox_denglu").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#denglu").css("display", "block");
+        })
+        $("#rightbox_zhuce").on("click", function () {
+            $("#zhezhao").css("display", "block");
+            $("#zhuce").css("display", "block");
+        })
+
+        $(window).scroll(function () {
+            $("#denglu").css("position", "fixed").css("top", "20px");
+            $("#zhuce").css("position", "fixed").css("top", "20px");
+        })
+        $("#denglu input").focus(function () {
+            $(this).attr("placeholder", "").css("border", "1px solid skyblue").css("color", "black");
+        })
+        $("#zhuce input").focus(function () {
+            $(this).attr("placeholder", "").css("border", "1px solid skyblue").css("color", "black");
+        })
+        $("#zhuce input").eq(0).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "电子邮件");
+        })
+        $("#zhuce input").eq(1).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "您的密码");
+        })
+        $("#zhuce input").eq(2).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "请再次输入密码");
+        })
+        $("#zhuce input").eq(3).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "用户名");
+        })
+        $("#zhuce input").eq(4).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "手机号码");
+        })
+        $("#zhuce input").eq(5).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "验证码");
+        })
+        $("#denglu input").eq(0).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "电子邮件");
+        })
+        $("#denglu input").eq(1).blur(function () {
+            $(this).css("border", "1px solid #E2E2E2").attr("placeholder", "您的密码");
+        })
+        $("#close").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#denglu").css("display", "none");
+        })
+        $("#zhezhao").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#denglu").css("display", "none");
+        })
+        $("#close_zhuce").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#zhuce").css("display", "none");
+        })
+        $("#zhezhao").click(function () {
+            $("#zhezhao").css("display", "none");
+            $("#zhuce").css("display", "none");
+        })
+        var code = Math.floor(Math.random() * 9000) + 1000;
+//       alert(code);
+        $("#yanzhengma").click(function () {
+            code = Math.floor(Math.random() * 9000) + 1000;
+            $("#yanzhengma").html(code);
+        })
+        $("#yanzhengma").html(code);
+
+
+        $("#content a").eq(0).mouseenter(function () {
+            $(".hidebox").css("display", "block");
+        })
+        $("#content a").eq(0).mouseleave(function () {
+            $(".hidebox").css("display", "none");
+        })
+        $(".hidebox").mouseenter(function () {
+            $(".hidebox").css("display", "block");
+        })
+        $(".hidebox").mouseleave(function () {
+            $(".hidebox").css("display", "none");
+        })
+
+        $("#content .contenta1").mouseenter(function () {
+            $(".hidebox1").css("display", "block");
+        })
+        $("#content .contenta1").mouseleave(function () {
+            $(".hidebox1").css("display", "none");
+        })
+        $(".hidebox1").mouseenter(function () {
+            $(".hidebox1").css("display", "block");
+        })
+        $(".hidebox1").mouseleave(function () {
+            $(".hidebox1").css("display", "none");
+        })
+        $("#content .contenta2").mouseenter(function () {
+            $(".hidebox2").css("display", "block");
+        })
+        $("#content .contenta2").mouseleave(function () {
+            $(".hidebox2").css("display", "none");
+        })
+        $(".hidebox2").mouseenter(function () {
+            $(".hidebox2").css("display", "block");
+        })
+        $(".hidebox2").mouseleave(function () {
+            $(".hidebox2").css("display", "none");
+        })
+        $("#content .contenta3").mouseenter(function () {
+            $(".hidebox3").css("display", "block");
+        })
+        $("#content .contenta3").mouseleave(function () {
+            $(".hidebox3").css("display", "none");
+        })
+        $(".hidebox3").mouseenter(function () {
+            $(".hidebox3").css("display", "block");
+        })
+        $(".hidebox3").mouseleave(function () {
+            $(".hidebox3").css("display", "none");
+        })
+        $("#content .contenta4").mouseenter(function () {
+            $(".hidebox4").css("display", "block");
+        })
+        $("#content .contenta4").mouseleave(function () {
+            $(".hidebox4").css("display", "none");
+        })
+        $(".hidebox4").mouseenter(function () {
+            $(".hidebox4").css("display", "block");
+        })
+        $(".hidebox4").mouseleave(function () {
+            $(".hidebox4").css("display", "none");
+        })
+        $("#content .contenta5").mouseenter(function () {
+            $(".hidebox5").css("display", "block");
+        })
+        $("#content .contenta5").mouseleave(function () {
+            $(".hidebox5").css("display", "none");
+        })
+        $(".hidebox5").mouseenter(function () {
+            $(".hidebox5").css("display", "block");
+        })
+        $(".hidebox5").mouseleave(function () {
+            $(".hidebox5").css("display", "none");
+        })
+        $("#guanzhuweixin").mouseenter(function () {
+            $(".weweima").css("display","block");
+        })
+        $("#guanzhuweixin").mouseleave(function () {
+            $(".weweima").css("display","none");
+        })
+
+        var flag = true;
+        $("#checkbox").click(function () {
+            if (flag == true) {
+                confirm("在这台计算机上面要保存电子邮件地址吗?\n您的信息可能会被泄露，敬请留意。");
+                flag = false
+            } else {
+                flag = true;
+            }
+        })
+        $("#denglu_denglu").click(function () {
+            var temp = $("#denglu input").eq(0).val().trim();
+            var temp1 = $("#denglu input").eq(1).val();
+            if (temp == "") {
+                alert("请输入您的邮件地址");
+                return;
+            } else {
+                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (filter.test(temp)) {
+                }
+                else {
+                    alert('您的电子邮件格式不正确');
+                    return;
+                }
+            }
+//            console.log(flag);
+            if (temp1 == "") {
+                alert("请输入密码");
+            }
+        })
+    })
+</script>
